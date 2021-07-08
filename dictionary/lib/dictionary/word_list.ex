@@ -1,10 +1,10 @@
 defmodule Dictionary.WordList do
-  def random_word(words_list) do
-    words_list
+  def random_word(word_list) do
+    word_list
     |> Enum.random()
   end
 
-  def start do
+  def word_list do
     "../../assets/words.txt"
     |> Path.expand(__DIR__)
     |> File.read!()
