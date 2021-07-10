@@ -11,6 +11,7 @@ defmodule Hangman.Server do
   end
 
   def init(_) do
+    IO.puts("Starting new game...#{inspect(self())}")
     {:ok, Game.new_game()}
   end
 
@@ -20,7 +21,7 @@ defmodule Hangman.Server do
   end
 
   def handle_call({:tally}, _from, game) do
-    {game, tally} = Game.tally(game)
+    tally = Game.tally(game)
     {:reply, tally, game}
   end
 end
